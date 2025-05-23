@@ -1,0 +1,19 @@
+import {
+  ArgumentMetadata,
+  BadRequestException,
+  PipeTransform,
+} from '@nestjs/common';
+import { ValidationService } from '../../../../../../common/services/validation/validation.service';
+import { CreateAdminSchema } from '../../schema/admin/createAdmin.schema';
+
+export class CreateStudentPipe implements PipeTransform {
+  constructor(private readonly validator: ValidationService) {}
+
+  transform(value: unknown, metadata: ArgumentMetadata) {
+    try {
+      return this.validator.validate(CreateAdminSchema, value);
+    } catch (err) {
+      throw new BadRequestException('Validation failed', err);
+    }
+  }
+}
