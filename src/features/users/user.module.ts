@@ -23,6 +23,12 @@ import { UserController } from './presentation/rest/controller/user.controller';
     DeleteUserUsecase,
   ],
   controllers: [UserController],
-  exports: [],
+  exports: [
+    UserService,
+    {
+      provide: USER_REPO_TOKEN,
+      useClass: UserRepositoryAdapter,
+    },
+  ],
 })
 export class UserModule {}

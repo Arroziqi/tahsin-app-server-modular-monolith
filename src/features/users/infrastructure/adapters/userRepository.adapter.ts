@@ -8,6 +8,13 @@ import { UserMapper } from '../mapper/user.mapper';
 export class UserRepositoryAdapter implements UserRepositoryPort {
   constructor(private readonly prisma: PrismaService) {}
 
+  async findByToken(token: string): Promise<UserEntity | null> {
+    const result = await this.prisma.user.findFirst({
+      where: { token },
+    });
+    return result ? UserMapper.toEntity(result) : null;
+  }
+
   async findById(id: number): Promise<UserEntity | null> {
     const result = await this.prisma.user.findFirst({
       where: { id },
