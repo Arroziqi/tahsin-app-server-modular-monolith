@@ -8,4 +8,5 @@ export const CreateStudentSchema = z.object({
   enrollmentId: z.number(),
   studentStatusId: z.number().optional(),
   userId: z.number(),
+  createdBy: z.number().optional(),
 });

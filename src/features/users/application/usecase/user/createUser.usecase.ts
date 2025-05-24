@@ -1,5 +1,5 @@
 import { ConflictException, Injectable } from '@nestjs/common';
-import { UserService } from '../../../domain/services/user.service';
+import { UserService } from '../../service/user.service';
 import { UseCase } from '../../../../../common/types/usecase';
 import { UserEntity } from '../../../domain/entities/user.entity';
 

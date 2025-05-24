@@ -7,13 +7,13 @@ import { ValidationService } from '../../../../../../common/services/validation/
 import { CreateAdminSchema } from '../../schema/admin/createAdmin.schema';
 
 export class CreateAdminPipe implements PipeTransform {
-  constructor(private readonly validator: ValidationService) {}
+  constructor() {}
 
   transform(value: unknown, metadata: ArgumentMetadata) {
     try {
-      return this.validator.validate(CreateAdminSchema, value);
+      return ValidationService.validate(CreateAdminSchema, value);
     } catch (err) {
-      throw new BadRequestException('Validation failed', err);
+      throw new BadRequestException(err, 'Validation failed');
     }
   }
 }

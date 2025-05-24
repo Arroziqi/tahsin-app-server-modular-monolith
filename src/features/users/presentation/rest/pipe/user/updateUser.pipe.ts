@@ -7,13 +7,13 @@ import { ValidationService } from '../../../../../../common/services/validation/
 import { UpdateUserSchema } from '../../schema/user/updateUser.schema';
 
 export class UpdateUserPipe implements PipeTransform {
-  constructor(private readonly validator: ValidationService) {}
+  constructor() {}
 
   transform(value: unknown, metadata: ArgumentMetadata) {
     try {
-      return this.validator.validate(UpdateUserSchema, value);
+      return ValidationService.validate(UpdateUserSchema, value);
     } catch (err) {
-      throw new BadRequestException('Validation failed', err);
+      throw new BadRequestException(err, 'Validation failed');
     }
   }
 }

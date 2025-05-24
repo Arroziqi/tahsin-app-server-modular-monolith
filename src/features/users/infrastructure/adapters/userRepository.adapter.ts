@@ -5,7 +5,7 @@ import { PrismaService } from '../../../../common/services/database/prisma.servi
 import { UserMapper } from '../mapper/user.mapper';
 
 @Injectable()
-export class UserRepositoryPersistence implements UserRepositoryPort {
+export class UserRepositoryAdapter implements UserRepositoryPort {
   constructor(private readonly prisma: PrismaService) {}
 
   async findById(id: number): Promise<UserEntity | null> {

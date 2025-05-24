@@ -6,11 +6,10 @@ import { TimeService } from './utils/time.service';
 import { AppLoggerModule } from './services/logger/appLogger.module';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { LoggingInterceptor } from './interceptors/logging.interceptor';
-import { ValidationModule } from './services/validation/validation.module';
 
 @Global()
 @Module({
-  imports: [AppLoggerModule, ValidationModule],
+  imports: [AppLoggerModule],
   providers: [
     PrismaService,
     HasherService,

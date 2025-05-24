@@ -7,4 +7,5 @@ export const CreateTeacherSchema = z.object({
   accountName: z.string().optional(),
   bankName: z.string().optional(),
   userId: z.number(),
+  createdBy: z.number().optional(),
 });

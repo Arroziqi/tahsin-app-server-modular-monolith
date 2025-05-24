@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { USER_REPO_TOKEN } from '../../constant/provider.token';
-import { UserRepositoryPort } from '../ports/userRepository.port';
-import { UserEntity } from '../entities/user.entity';
+import { USER_REPO_TOKEN } from '../../../../common/constants/provider.token';
+import { UserRepositoryPort } from '../../domain/ports/userRepository.port';
+import { UserEntity } from '../../domain/entities/user.entity';
 import { HasherService } from '../../../../common/services/crypto/hasher.service';
 
 @Injectable()

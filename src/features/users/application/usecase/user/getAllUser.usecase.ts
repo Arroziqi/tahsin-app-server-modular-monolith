@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { UseCase } from '../../../../../common/types/usecase';
 import { UserEntity } from '../../../domain/entities/user.entity';
-import { UserService } from '../../../domain/services/user.service';
+import { UserService } from '../../service/user.service';
 
 @Injectable()
 export class GetAllUserUsecase implements UseCase<void, UserEntity[] | null> {

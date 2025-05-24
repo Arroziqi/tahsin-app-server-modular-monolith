@@ -4,4 +4,5 @@ export const UpdateUserSchema = z.object({
   id: z.number(),
   username: z.string(),
   password: z.string(),
+  updatedBy: z.number().optional(),
 });
