@@ -29,7 +29,7 @@ model User {
 model Admin {
   id        Int       @id @default(autoincrement())
   noAdmin   String    @unique @map("no_admin")
-  name      String
+  fullName  String
   userId    Int       @unique @map("user_id")
   createdAt DateTime? @default(now()) @map("created_at")
   createdBy Int?      @map("created_by")
@@ -69,8 +69,8 @@ model Student {
 
 model Teacher {
   id            Int       @id @default(autoincrement())
-  name          String
-  nip           String
+  fullName      String
+  nip           String    @unique
   accountNumber String?   @map("account_number")
   accountName   String?   @map("account_name")
   bankName      String?   @map("bank_name")

@@ -63,7 +63,7 @@ async function main() {
     data: [
       {
         noAdmin: '1001',
-        name: 'Admin Utama',
+        fullName: 'Admin Utama',
         userId: adminUser.id,
         createdAt: now,
         updatedAt: now,
@@ -71,7 +71,7 @@ async function main() {
       },
       {
         noAdmin: '1002',
-        name: 'Super Admin',
+        fullName: 'Super Admin',
         userId: superAdmin.id,
         createdAt: now,
         updatedAt: now,
@@ -83,7 +83,7 @@ async function main() {
   // Teacher
   const teacher = await prisma.teacher.create({
     data: {
-      name: 'Ustadz Haris',
+      fullName: 'Ustadz Haris',
       nip: '987654321',
       accountNumber: '1234567890',
       accountName: 'Ust Haris',

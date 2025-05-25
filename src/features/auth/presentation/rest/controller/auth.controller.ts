@@ -16,6 +16,7 @@ import { LogoutUsecase } from 'src/features/auth/application/usecase/logout.usec
 import { UserEntity } from '../../../../users/domain/entities/user.entity';
 import { BASE_PATH } from '../../../../../common/constants/cons';
 import { Public } from 'src/common/decorators/public.decorator';
+import { User } from '../../../../../common/decorators/user.decorator';
 
 @Controller(`${BASE_PATH}`)
 @UseInterceptors(UserInterceptor)
@@ -39,7 +40,7 @@ export class AuthController {
   }
 
   @Delete('/logout')
-  logout(@Body() req: Partial<UserEntity>) {
+  logout(@User() req: Partial<UserEntity>) {
     return this.logoutUsecase.execute(req);
   }
 }

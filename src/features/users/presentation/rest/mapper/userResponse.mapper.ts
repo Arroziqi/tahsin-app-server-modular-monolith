@@ -18,4 +18,10 @@ export class UserResponseMapper {
     const { password, ...rest } = entity;
     return rest;
   }
+
+  static exceptPasswordAndToken(entity: UserEntity): unknown {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { password, token, ...rest } = entity;
+    return rest;
+  }
 }

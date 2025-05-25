@@ -20,9 +20,12 @@ import { UpdateUserDto } from '../dto/user/updateUser.dto';
 import { CreateUserPipe } from '../pipe/user/createUser.pipe';
 import { UpdateUserPipe } from '../pipe/user/updateUser.pipe';
 import { UserInterceptor } from '../interceptor/user.interceptor';
+import { User } from '../../../../../common/decorators/user.decorator';
+import { UserEntity } from '../../../domain/entities/user.entity';
+import { TokenInterceptor } from '../interceptor/token.interceptor';
 
 @Controller(`${BASE_PATH}/user`)
-@UseInterceptors(UserInterceptor)
+@UseInterceptors(UserInterceptor, TokenInterceptor)
 export class UserController {
   constructor(
     private readonly createUserUseCase: CreateUserUsecase,
@@ -33,8 +36,8 @@ export class UserController {
   ) {}
 
   @Post('/create')
-  create(@Body(CreateUserPipe) req: CreateUserDto) {
-    return this.createUserUseCase.execute(req);
+  create(@Body(CreateUserPipe) req: CreateUserDto, @User() user: UserEntity) {
+    return this.createUserUseCase.execute({ ...req, createdBy: user.id });
   }
 
   @Get('/getAll')
@@ -48,8 +51,8 @@ export class UserController {
   }
 
   @Patch('/update')
-  update(@Body(UpdateUserPipe) req: UpdateUserDto) {
-    return this.updateUserUseCase.execute(req);
+  update(@Body(UpdateUserPipe) req: UpdateUserDto, @User() user: UserEntity) {
+    return this.updateUserUseCase.execute({ ...req, updatedBy: user.id });
   }
 
   @Delete('/delete/:id')
