@@ -5,6 +5,9 @@ import { UsersAgregateModule } from './users/users-agregate.module';
 import { PaymentAgregateModule } from './payment/payment-agregate.module';
 import { EvaluationAgregateModule } from './evaluation/evaluation-agregate.module';
 import { SchedulingAgregateModule } from './scheduling/scheduling-agregate.module';
+import { TeachingAgregateModule } from './teaching/teaching-agregate.module';
+import { RegistrationAgregateModule } from './registration/registration-agregate.module';
+import { CoursesAgregateModule } from './courses/courses-agregate.module';
 
 @Module({
   imports: [
@@ -13,6 +16,9 @@ import { SchedulingAgregateModule } from './scheduling/scheduling-agregate.modul
     PaymentAgregateModule,
     EvaluationAgregateModule,
     SchedulingAgregateModule,
+    TeachingAgregateModule,
+    RegistrationAgregateModule,
+    CoursesAgregateModule,
   ],
   controllers: [],
   providers: [
